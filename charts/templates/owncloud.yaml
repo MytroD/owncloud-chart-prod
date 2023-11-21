@@ -20,6 +20,5 @@ spec:
             - containerPort: {{ .Values.template.spec.containers[0].ports[0].containerPort }}
           env: {{ toYaml .Values.template.spec.containers[0].env | nindent 12 }}
           volumeMounts: {{ toYaml .Values.template.spec.containers[0].volumeMounts | nindent 12 }}
-      volumes: {{ toYaml .Values.template.spec.volumes | nindent 8 }}
-
+      volumes: {}
 {{- end -}}
