@@ -3,6 +3,16 @@ entries:
   owncloud:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-11-21T12:57:26.031976719Z"
+    description: A Helm chart for Kubernetes
+    digest: 73861753e7015291d227ee0131d59f30870239c8d7dc75ff87638dc10531f4bf
+    name: owncloud
+    type: application
+    urls:
+    - https://github.com/MytroD/owncloud-chart-prod/releases/download/owncloud-0.1.63/owncloud-0.1.63.tgz
+    version: 0.1.63
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-11-21T12:51:15.536539465Z"
     description: A Helm chart for Kubernetes
     digest: 02c0fa49e6641ef3eb101dfc287f7f7b8c163d316adcaaf94d3d26468b261682
@@ -51,4 +61,4 @@ entries:
     urls:
     - https://github.com/MytroD/owncloud-chart-prod/releases/download/owncloud-0.1.4/owncloud-0.1.4.tgz
     version: 0.1.4
-generated: "2023-11-21T12:51:15.536555575Z"
+generated: "2023-11-21T12:57:26.031997518Z"
