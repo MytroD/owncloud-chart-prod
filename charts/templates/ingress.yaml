@@ -1,26 +1,14 @@
+{{- if .Values.ingress }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: owncloud1
-status:
-  loadBalancer:
-    ingress:
-      - ip: 192.168.17.10
+  name: {{ .Release.Name }}-ingress
 spec:
-  ingressClassName: nginx
+  hosts:
+    - host: {{ .values.host.name }}
+      paths: "/"
   tls:
-    - hosts:
-        - owncloud.doianov.me
-      secretName: owncloud
-  rules:
-    - host: owncloud.doianov.me
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: owncloud1
-                port:
-                  number: 80
-
+    - secretName: {{ .values.tls.secret }}
+      hosts:
+        - {{ .values.host.name }}
+{{- end }}
