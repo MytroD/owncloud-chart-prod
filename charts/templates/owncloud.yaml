@@ -17,8 +17,8 @@ spec:
         - name: owncloud
           image: "docker.io/owncloud/server:10.6"
           ports:
-            - containerPort: {{ .Values.template.spec.containers[0].ports[0].containerPort }}
-          env: {{ toYaml .Values.template.spec.containers[0].env | nindent 12 }}
-          volumeMounts: {{ toYaml .Values.template.spec.containers[0].volumeMounts | nindent 12 }}
+            - containerPort: {}
+          env: {}
+          volumeMounts: {}
       volumes: {}
 {{- end -}}
