@@ -44,3 +44,7 @@ service:
 
 serviceaccount:
   enabled: true
+  name: "your-service-account-name"
+  annotations:
+    key1: value1
+    key2: value2
