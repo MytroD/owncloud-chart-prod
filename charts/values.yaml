@@ -1,6 +1,26 @@
 ###
 ###
-###test
-test: {}
-host.name: owncloud
-tls.secret: owncloud
+###
+
+ingress:
+  enabled: true
+
+owncloud:
+  enabled: true
+
+postgresql:
+  enabled: false
+
+redis:
+  enabled: true
+
+#secrets:
+#  enabled: false
+
+service:
+  enabled: true
+
+serviceaccount:
+  enabled: true
+
+

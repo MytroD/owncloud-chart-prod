@@ -1,3 +1,4 @@
+{{- if .Values.owncloud.enabled -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,53 +49,4 @@ spec:
       - name: owncloud-data
         persistentVolumeClaim:
           claimName: owncloud-data
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: redis
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: redis
-  template:
-    metadata:
-      labels:
-        app: redis
-    spec:
-      containers:
-      - name: redis
-        image: redis:latest
-        ports:
-        - containerPort: 6379
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: postgresql
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: postgresql
-  template:
-    metadata:
-      labels:
-        app: postgresql
-    spec:
-      containers:
-      - name: postgresql
-        image: postgres:latest
-        env:
-        - name: POSTGRES_DB
-          value: owncloud
-        - name: POSTGRES_USER
-          value: owncloud
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgresql-secret
-              key: postgresql-password
-        ports:
-        - containerPort: 5432
+{{- end -}}
