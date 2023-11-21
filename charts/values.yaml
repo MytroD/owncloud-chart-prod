@@ -43,6 +43,4 @@ service:
   enabled: true
 
 serviceaccount:
-  create: true
-
-
+  enabled: true
