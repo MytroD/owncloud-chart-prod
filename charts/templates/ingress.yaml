@@ -28,7 +28,4 @@ spec:
     - hosts:
         - owncloud.doianov.me
       secretName: my-tls-secret
-
-
-
 {- end }}
