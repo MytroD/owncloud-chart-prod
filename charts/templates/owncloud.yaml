@@ -19,9 +19,9 @@ spec:
          #image: {{ index .Values.template.containers 0 | default "" }}
          #image: {{ .Values.template.containers[0].image }}
           ports:
-            - containerPort: {{ .Values.template.containers[0].ports[0].containerPort }}
-          env: {{ toYaml .Values.template.containers[0].env | nindent 12 }}
-          volumeMounts: {{ toYaml .Values.template.containers[0].volumeMounts | nindent 12 }}
+            - containerPort: {{ .Values.template.containers.ports.containerPort }}
+          env: {{ toYaml .Values.template.containers.env | nindent 12 }}
+          volumeMounts: {{ toYaml .Values.template.containers.volumeMounts | nindent 12 }}
       volumes: 
 {{ toYaml .Values.template.volumes | nindent 8 }}
 {{- end -}}
