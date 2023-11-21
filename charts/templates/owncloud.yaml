@@ -16,8 +16,6 @@ spec:
       containers:
         - name: owncloud
           image: {{ .Values.template.containers.image }}
-         #image: {{ index .Values.template.containers 0 | default "" }}
-         #image: {{ .Values.template.containers[0].image }}
           ports:
             - containerPort: {{ .Values.template.containers.ports.containerPort }}
           env: {{ toYaml .Values.template.containers.env | nindent 12 }}
