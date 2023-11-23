@@ -18,7 +18,27 @@ spec:
           image: "docker.io/owncloud/server:10.6"
           ports:
             - containerPort: 8080
-          env: {{ toYaml .Values.template.spec.containers[0].env | nindent 12 }}
-          volumeMounts: {{ }}
-      volumes: {{ }}
+          env:
+            - name: OWNCLOUD_DOMAIN
+              value: owncloud.example.com
+            - name: OWNCLOUD_ADMIN_USERNAME
+              value: admin
+            - name: OWNCLOUD_ADMIN_PASSWORD
+              value: adminpassword
+            - name: MARIADB_HOST
+              value: postgresql
+            - name: MARIADB_PORT_NUMBER
+              value: "5432"
+            - name: OWNCLOUD_DATABASE_NAME
+              value: owncloud
+            - name: OWNCLOUD_DATABASE_USER
+              value: owncloud
+            - name: OWNCLOUD_DATABASE_PASSWORD
+          volumeMounts:
+            - name: owncloud-data
+              mountPath: /mnt/data
+      volumes:
+        - name: owncloud-data
+          persistentVolumeClaim:
+            claimName: owncloud-data
 {{- end -}}
