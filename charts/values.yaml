@@ -27,7 +27,6 @@ template:
 
 persistence:
   enabled: true
-  accessMode: ReadWriteMany
   size: 10Gi
   storageClass: nfs-storage-1  # Specify your NFS storage class
 
