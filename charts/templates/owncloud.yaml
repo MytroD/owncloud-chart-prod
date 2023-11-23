@@ -17,7 +17,14 @@ spec:
         - name: owncloud
           image: "docker.io/owncloud/server:10.6"
           securityContext:
-            runAsUser: 0
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+            runAsNonRoot: true
+            runAsUser: 33  # UID for www-data
+            seccompProfile:
+              type: RuntimeDefault
           ports:
             - containerPort: 8080
           env:
